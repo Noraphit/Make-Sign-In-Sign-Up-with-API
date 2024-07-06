@@ -1,0 +1,45 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "fname": "Napoleon",
+      "lname": "Bonaparte",
+      "username": "Napoleon Bonaparte",
+      "password": "123",
+      "email": "Napoleon.Bonaparte@gmail.com",
+      "avatar": "logo192.png"
+    },
+    {
+      "id": "2",
+      "fname": "John",
+      "lname": "Smith",
+      "username": "John Smith",
+      "email": "John.Smith@gmail.com",
+      "avatar": ""
+    },
+    {
+      "id": "3",
+      "fname": "Ezio",
+      "lname": "Antonio",
+      "username": "Ezio Antonio",
+      "email": "Ezio.Antonio@gmail.com",
+      "avatar": ""
+    },
+    {
+      "id": "4",
+      "fname": "Corner",
+      "lname": "White",
+      "username": "Corner White",
+      "email": "Corner.White@gmail.com",
+      "avatar": ""
+    },
+    {
+      "id": "5",
+      "fname": "Arno",
+      "lname": "Dorian",
+      "username": "Arno Dorian",
+      "email": "Arno.Dorian@gmail.com",
+      "avatar": ""
+    }
+  ]
+}

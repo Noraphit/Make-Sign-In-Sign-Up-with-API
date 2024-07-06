@@ -2,9 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [inputs, setInputs] = useState({});
+  const MySwal = withReactContent(Swal)
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -21,7 +24,7 @@ function Login() {
     var raw = JSON.stringify({
       "username": inputs.username,
       "password": inputs.password,
-      "expiresIn": 60000
+      "expiresIn": 600000
     });
 
     var requestOptions = {
@@ -39,6 +42,9 @@ function Login() {
           MySwal.fire({
             html: <i>{result.message}</i>,
             icon: 'success'
+          }).then((value) => {
+            localStorage.setItem("token", result.accessToken);
+            navigate("/profile")
           })
         } else {
           MySwal.fire({
@@ -50,8 +56,6 @@ function Login() {
       .catch(error => console.log('error', error));
     console.log(inputs);
   }
-
-  const MySwal = withReactContent(Swal)
 
   return (
     <>
