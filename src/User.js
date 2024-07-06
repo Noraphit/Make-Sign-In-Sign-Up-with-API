@@ -18,7 +18,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 
-function Profile() {
+function User() {
   const [isLoaded, setIsLoaded] = useState(true);
   const [user, setUser] = useState([]);
 
@@ -71,11 +71,6 @@ function Profile() {
     localStorage.removeItem('token')
     navigate("/")
   }
-
-  const userprofile = () => {
-    navigate("/userprofile")
-  }
-
   if (isLoaded) return (<div>Loading</div>)
 
   return (
@@ -94,7 +89,7 @@ function Profile() {
             </IconButton>
 
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Dashboard
+              User Profile
             </Typography>
             {auth && (
               <div>
@@ -123,7 +118,6 @@ function Profile() {
                   open={Boolean(anchorEl)}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={userprofile}>User Profile</MenuItem>
                   <MenuItem onClick={logout}>Logout</MenuItem>
                 </Menu>
               </div>
@@ -141,14 +135,81 @@ function Profile() {
             flexDirection: 'column',
             alignItems: 'center',
           }}
-        ></Box>
+        >
 
-        <Typography component="h1" variant="h5">
-          Dashboard
-        </Typography>
+          <Typography component="h1" variant="h5">
+            User Profile
+          </Typography>
+
+          <Box sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="fname"
+                  required
+                  fullWidth
+                  id="fname"
+                  label="First Name"
+                  autoFocus
+                  value={user.fname}
+                />
+              </Grid>
+
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="lname"
+                  label="Last Name"
+                  name="lname"
+                  autoComplete="family-name"
+                  value={user.lname}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  name="username"
+                  autoComplete="username"
+                  value={user.username}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  value={user.email}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="avatar"
+                  label="avatar"
+                  type="avatar"
+                  id="avatar"
+                  autoComplete="avatar"
+                  value={user.avatar}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
       </Container>
     </>
   );
 };
 
-export default Profile;
+export default User;
